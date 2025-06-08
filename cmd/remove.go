@@ -43,7 +43,7 @@ Make sure you are logged in before using this command. It uses your saved token 
 
 
 
-		uri:="http://localhost:8080/api/tasks/"+idarg
+		uri:="https://todo-api-s0tq.onrender.com/api/tasks/"+idarg
 
 		req,err:=http.NewRequest("DELETE",uri,nil)
 		if err != nil {

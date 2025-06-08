@@ -79,7 +79,7 @@ Run: func(cmd *cobra.Command, args []string) {
 	})
 	reqBody := bytes.NewReader(postBody)
 
-	req, err := http.NewRequest("POST", "http://localhost:8080/api/tasks/", reqBody)
+	req, err := http.NewRequest("POST", "https://todo-api-s0tq.onrender.com/api/tasks/", reqBody)
 	if err != nil {
 		fmt.Println(" Request creation failed:", err)
 		return

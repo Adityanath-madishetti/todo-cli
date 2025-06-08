@@ -68,7 +68,7 @@ Examples:
 		})
 
 		reqBody := bytes.NewReader(postBody)
-		req, err := http.NewRequest("POST", "http://localhost:8080/api/auth/register", reqBody)
+		req, err := http.NewRequest("POST", "https://todo-api-s0tq.onrender.com/api/auth/register", reqBody)
 		if err != nil {
 			fmt.Println(" Failed to create signup request:", err)
 			return

@@ -86,7 +86,7 @@ Examples:
 
 		//now encode text in body of put
 
-		url:="http://localhost:8080/api/tasks/description/"+taskId
+		url:="https://todo-api-s0tq.onrender.com/api/tasks/description/"+taskId
 
 		
 		jsonbytes,err:=json.Marshal(map[string]string{"text":text})

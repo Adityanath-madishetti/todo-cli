@@ -72,7 +72,7 @@ Examples:
 		fmt.Println("here it entered id branch.")
 
 		// Create GET request manually
-		req, err := http.NewRequest("GET", "http://localhost:8080/api/tasks/"+id, nil)
+		req, err := http.NewRequest("GET", "https://todo-api-s0tq.onrender.com/api/tasks/"+id, nil)
 		if err != nil {
 			fmt.Println("Error creating request:", err)
 			return
@@ -142,7 +142,7 @@ Examples:
 		}
 	}
 
-	url := "http://localhost:8080/api/tasks/filter"
+	url := "https://todo-api-s0tq.onrender.com/api/tasks/filter"
 	if query != "" {
 		url += "?" + query
 	}

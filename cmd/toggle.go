@@ -37,7 +37,7 @@ Examples:
 		idarg := args[0]
 
 
-		uri:= "http://localhost:8080/api/tasks/"
+		uri:= "https://todo-api-s0tq.onrender.com/api/tasks/"
 
 		putbody,_:=json.Marshal(map[string]interface{}{
 		"types": []string{"toggle"},

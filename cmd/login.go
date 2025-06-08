@@ -68,7 +68,7 @@ You can pass username and password as arguments, flags, or interactively.`,
 
 		reqBody := bytes.NewReader(postBody)
 		// https://go-api-todo.onrender.com
-		req, err := http.NewRequest("POST", "http://localhost:8080/api/auth/login", reqBody)
+		req, err := http.NewRequest("POST", "https://todo-api-s0tq.onrender.com/api/auth/login", reqBody)
 		if err != nil {
 			fmt.Println("Request creation failed:", err)
 			return
