@@ -47,6 +47,9 @@ Examples:
 			return
 		}
 
+
+		
+
 		inpFile,_:=cmd.Flags().GetString("input")
 		var text string
 		if inpFile!=""{  // flag is present then go for it
@@ -67,8 +70,8 @@ Examples:
 
 			for sc.Scan(){
 				text+=sc.Text()+"\n"
-				
 			}
+
 
 				if err := sc.Err(); err != nil {
 					fmt.Println("Error reading file:", err)
