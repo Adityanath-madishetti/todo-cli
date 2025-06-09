@@ -107,7 +107,13 @@ Examples:
 			return
 		}	
 		req.Header.Set("Content-Type","application/json")
-		utils.AddToken(req)
+		
+		err=utils.AddToken(req)
+		if err!=nil{
+			fmt.Println("error is :",err)
+			return
+		}
+		
 
 
 		response,err:=http.DefaultClient.Do(req)

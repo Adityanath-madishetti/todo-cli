@@ -37,33 +37,32 @@ func SecurePasswordtInput() (string,error){
 	return password,nil
 }
 
-
-func AddToken(req *http.Request) error{
+func AddToken(req *http.Request) error {
 	home, err := os.UserHomeDir()
 	if err != nil {
-		fmt.Println(" Could not get home directory:", err)
-		return err
+		return fmt.Errorf("could not determine home directory: %w", err)
 	}
 
 	sessionFile := filepath.Join(home, ".todo-session")
+
 	content, err := os.ReadFile(sessionFile)
-	if err != nil {
-		fmt.Println(" Failed to read session file:", err)
-		return err
+	if errors.Is(err, os.ErrNotExist) {
+		// Don't print anything here — let the caller handle the "not logged in" case
+		fmt.Println("here in token validation")
+		return errors.New("not logged in")
 	}
+	if err != nil {
+		return fmt.Errorf("could not read session file: %w", err)
+	}
+
 	token := strings.TrimSpace(string(content))
 	if token == "" {
-		fmt.Println(" Token is empty in session file.")
-		return errors.New("empty token")
+		return errors.New("not logged in: empty token")
 	}
 
 	req.Header.Add("Authorization", "Bearer "+token)
-
-	//now ad dtoken to headers
-
 	return nil
 }
-
 
 
 

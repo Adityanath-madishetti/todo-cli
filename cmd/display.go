@@ -69,7 +69,7 @@ Examples:
 	}
 
 	if id != "" {
-		fmt.Println("here it entered id branch.")
+		// fmt.Println("here it entered id branch.")
 
 		// Create GET request manually
 		req, err := http.NewRequest("GET", "https://todo-api-s0tq.onrender.com/api/tasks/"+id, nil)
@@ -79,7 +79,13 @@ Examples:
 		}
 		req.Header.Set("Content-Type","application/json")
 
-		utils.AddToken(req)
+		
+		err=utils.AddToken(req)
+		if err!=nil{
+			fmt.Println("error is :",err)
+			return
+		}
+		
 
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {
@@ -89,7 +95,7 @@ Examples:
 		defer resp.Body.Close()
 
 		body, _ := io.ReadAll(resp.Body)
-		fmt.Println("response received")
+		// fmt.Println("response received")
 
 		if resp.StatusCode != http.StatusOK {
 			var res map[string]interface{}
@@ -156,7 +162,12 @@ Examples:
 		return
 	}
 	req.Header.Set("Content-Type", "application/json")
-	utils.AddToken(req)
+
+	err=utils.AddToken(req)
+	if err!=nil{
+			fmt.Println("error is :",err)
+			return
+	}
 
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {

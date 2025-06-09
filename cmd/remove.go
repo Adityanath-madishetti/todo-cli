@@ -51,7 +51,12 @@ Make sure you are logged in before using this command. It uses your saved token 
 			return
 		}	
 
-		utils.AddToken(req)
+		err=utils.AddToken(req)
+		if err!=nil{
+			fmt.Println("error is :",err)
+			return
+		}
+		
 		resp, err := http.DefaultClient.Do(req)
 
 
